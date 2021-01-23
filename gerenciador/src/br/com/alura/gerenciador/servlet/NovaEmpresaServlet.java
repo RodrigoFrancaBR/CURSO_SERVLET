@@ -16,22 +16,18 @@ import javax.servlet.http.HttpServletResponse;
 public class NovaEmpresaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/*@Override
-	public void service(ServletRequest request, ServletResponse response) throws ServletException, IOException {
-		System.out.println("Cadastrando nova empresa");
-		String nomeEmpresa = request.getParameter("nome");
-		String cnpjEmpresa = request.getParameter("cnpj");
-		System.out.println(cnpjEmpresa);
-		PrintWriter out = response.getWriter();
-		out.println("<html><body>Empresa " + nomeEmpresa + " cadastrada com sucesso!</body></html>");
-	}
-*/
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("Cadastrando nova empresa");
 
 		String nomeEmpresa = request.getParameter("nome");
+		Empresa empresa = new Empresa();
+		empresa.setNome(nomeEmpresa);
+
+		Banco banco = new Banco();
+		banco.adiciona(empresa);
+
+		System.out.println("Cadastrando nova empresa");
 
 		PrintWriter out = response.getWriter();
 		out.println("<html><body>Empresa " + nomeEmpresa + " cadastrada com sucesso!</body></html>");
