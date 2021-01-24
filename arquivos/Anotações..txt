@@ -26,3 +26,28 @@ Alternativa correta! Todo o código (scriptlet) é executado no servidor antes d
 <% String msg = "Bem-vindo"; System.out.println(msg); %>
 
 para exibir Bem-vindo, deveria usar o out.println("Bem-vindo"); o System.out.println(msg); irá imprimir no Console do eclipse.
+
+JSTL (Java Standard Tag Library)
+
+core - controle de fluxo
+
+fmt - formatação / i18n (internacionalização)
+
+sql - executar SQL
+
+xml - gerar XML
+
+core - controle de fluxo <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c"%>
+
+
+Portanto, iremos continuar lançando exceções nesta parte do código, e criaremos um objeto do tipo ServletException. Para não perdermos de vista o problema original da exceção, adicionaremos e em ServletException, isto é, a exceção original.
+Esse padrão é conhecido por catch and rethrow, isto é, capturar e relançar a exceção. É exatamente isso que estamos fazendo.
+fmt - formatação/i18n (internacionalização) <%@ taglib uri = "http://java.sun.com/jsp/jstl/fmt" prefix = "fmt"%>
+
+A diferença está entre redirecionar o cliente para uma página (sendRedirect) e encaminhar uma requisição para ser atendida por outro recurso (forward).
+
+No primeiro caso (sendRedirect), o cliente receberá uma resposta http cujo header haverá a informação de que ele deve requisitar outra página, e o browser fará esta requisição. Ou seja, o redirecionamento ocorre no lado no cliente.
+
+No segundo caso (forward), no lado do server a requisição do usuário será encaminhada para ser atendida por outro recurso (outro servlet). Este outro servlet eventualmente devolverá outra página para o usuário.
+
+A diferença é bem grande principalmente no que tange à experiência do usuário.
