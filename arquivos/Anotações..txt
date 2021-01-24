@@ -13,3 +13,16 @@ Uma aplicação web Java pode ter páginas HTML
 Uma servlet é um objeto Java que podemos chamar a partir de uma requisição HTTP
 Para mapear a URL para uma servlet usamos a anotação @WebServlet
 Uma servlet deve estender a classe HttpServlet e sobrescrever um determinado método (por exemplo service)
+
+Alternativa correta! O método req.getParameter(..) sempre retorna uma string e recebe como parâmetro o nome do parâmetro recebido na requisição.
+
+https://cursos.alura.com.br/search?query=java
+
+JSP é uma tecnologia que renderiza as páginas no servidor antes de enviá-la.
+
+
+Alternativa correta! Todo o código (scriptlet) é executado no servidor antes de enviar a resposta para o navegador.
+
+<% String msg = "Bem-vindo"; System.out.println(msg); %>
+
+para exibir Bem-vindo, deveria usar o out.println("Bem-vindo"); o System.out.println(msg); irá imprimir no Console do eclipse.
