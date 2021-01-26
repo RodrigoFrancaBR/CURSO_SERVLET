@@ -51,3 +51,16 @@ No primeiro caso (sendRedirect), o cliente receberá uma resposta http cujo head
 No segundo caso (forward), no lado do server a requisição do usuário será encaminhada para ser atendida por outro recurso (outro servlet). Este outro servlet eventualmente devolverá outra página para o usuário.
 
 A diferença é bem grande principalmente no que tange à experiência do usuário.
+
+Esse é o arquivo que armazena configurações relacionadas ao mundo de Servlets, então estudaremos, rapidamente, algumas configurações que podem ser feitas nele. Ao abrirmos o arquivo web.xml, teremos acesso às configurações geradas automaticamente.
+
+Servlet é um objeto que pode ser acionado por meio de uma requisição do protocolo HTTP. Essa interação é possibilitada pelo Tomcat, e precisa seguir algumas regras, como estender, sobrescrever os métodos doGet(), doPost() e service(), e fazer o mapeamento para indicar a URL.
+
+Ou seja, o Tomcat realiza o papel intermediário entre o navegador e objeto, e por isso também é conhecido como middleware.
+
+. Por isso o Servlet é chamado de Singleton, um escopo, que sobrevive no projeto por tempo indeterminado enquanto o Tomcat estiver no ar, sem nunca recriá-lo.
+
+o Tomcat só instancia a servlet quando realmente ocorre uma requisição. Isso é o comportamento padrão que podemos alterar facilmente! A anotação @WebServlet possui um atributo loadOnStartup que muda esse comportamento:
+Ao reiniciar o Tomcat será criado o objeto da servlet OiMundoServlet
+
+Tentaremos agora listar as nossas empresas acessandolocalhost:8080/gerenciador/listaEmpresas/. E teremos uma mensagem de erro HTTP Status 500 - Internal Server Error, a root cause é UnsupportedClassVersionError, relacionada a class file version 54.0. Isso ocorreu porque compilamos as classes com uma versão mais recente daquela que usamos para executar o Tomcat.
